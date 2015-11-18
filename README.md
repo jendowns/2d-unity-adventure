@@ -1,4 +1,4 @@
-# unity-2d-project
+# Mini Adventure Game
 This is a 2D game (final project) for my Unity scripting class.
 
 I'm currently working on this, but the code I have posted now allows my three animated sprites (Sailor Moon, Sailor Mercury, and Sailor Venus)
