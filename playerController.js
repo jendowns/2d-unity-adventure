@@ -2,6 +2,8 @@
 
 var speed : float = 3f;
 var player : Animator;
+var fireballPrefab : GameObject;
+var fireball : GameObject;
 
 function Update (){
   
@@ -9,7 +11,8 @@ function Update (){
 	player.SetBool("left",false);
 	player.SetBool("right",false);
 	player.SetBool("up",false);
-	player.SetBool("down",false);					  												
+	player.SetBool("down",false);
+	player.SetBool("attacking",false);					  												
 		
     var h : float = Input.GetAxisRaw("Horizontal");
     var v : float = Input.GetAxisRaw("Vertical");
@@ -36,5 +39,20 @@ function Update (){
     }
     
     transform.position += velocity;
+    
+    if(Input.GetButton("Jump")){
+    	player.SetBool("attacking",true);
+    	ShootFireball();
+    }
         
 }
+
+function ShootFireball() {
+	
+	fireball = Instantiate(fireballPrefab, transform.position, transform.rotation);
+	// the rest of the fireball's animation + movement is in fireballController.js
+
+}
+
+
+

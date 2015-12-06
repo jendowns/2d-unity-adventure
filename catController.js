@@ -18,9 +18,9 @@ function Update (){
    
     velocity = Vector2.right * speed * Time.deltaTime;
     
-    if(transform.position.x < 4.5){
+    if(transform.position.x < 4.5)
     	transform.position += velocity;
-    }
+    	
     else if(transform.position.x >= 4.5){
     	cat.SetBool("walking",false);
     	cat.SetBool("talking",true);
