@@ -4,6 +4,7 @@
  var player : GameObject;
  var speed : float;
  var enemyAnim : Animator;
+ var healthBar : Animator;
  
  private var range : float;
  
@@ -19,6 +20,7 @@
  function Update()
  {
  	if(range <= 6f)
+    	
     	startBattleScene = true; 
  }
  
@@ -58,3 +60,10 @@
 
      }  
  }
+ 
+ function OnTriggerEnter2D(other : Collider2D){
+	
+	if (other.gameObject.tag == "player") {
+		healthBar.SetTrigger("hit");
+	}
+}
