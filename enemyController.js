@@ -5,6 +5,7 @@
  var speed : float;
  var enemyAnim : Animator;
  var healthBar : Animator;
+ var health : int = 600;
  
  private var range : float;
  
@@ -20,8 +21,21 @@
  function Update()
  {
  	if(range <= 6f)
-    	
     	startBattleScene = true; 
+ }
+ 
+ function Hurt(){
+ 	health -= 100;
+ 	healthBar.SetTrigger("hit");
+ 	
+ 	if(health <= 0){
+ 		Die();
+ 	}
+ }
+ 
+ function Die(){
+ 	Destroy(this.gameObject);
+ 	player.GetComponent(playerController).OnEnemyDefeat();
  }
  
  
